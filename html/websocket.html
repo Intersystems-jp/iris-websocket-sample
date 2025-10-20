@@ -1,0 +1,65 @@
+<html>
+
+<head>
+
+<title>WebSocket test</title>
+
+<script language="JavaScript">
+
+var ws=null;
+
+function createSocket() {
+
+  ws=new WebSocket('ws://localhost:8080/csp/user/User.WebSocket.cls');
+
+  ws.binaryType='blob';
+
+  ws.onopen=function(event)   { alert('socket created!');      };
+
+  ws.onmessage = function(event) { alert('receive data ' + event.data); };
+
+  ws.onerror = function(event)  { alert('connection error');      };
+
+  ws.onclose = function(event)  { ws=null; alert('closed');      };
+
+}
+
+function sendMsg() {
+
+ var json=JSON.stringify( {message:123} );
+
+ try{
+
+   var blob = new Blob([json], {type : 'application/json'});
+
+   ws.send(blob);
+
+ }
+
+ catch (e) {
+
+   alert('send error\n' + e);
+
+ }
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<form>
+
+<input type="button" name="xxx" value="create socket" onClick="createSocket();"><hr>
+
+<input type="button" name="btn" value="hello" onClick="sendMsg();"><hr>
+
+<input type="button" name="close" value="close socket" onClick="ws.close();">
+
+</form>
+
+</body>
+
+</html>
