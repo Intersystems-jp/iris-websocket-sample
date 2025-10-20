@@ -8,7 +8,7 @@
 
 サーバ側の処理
 
-### クライアント
+### クライアント側
 
 #### html/websocket.html
 
@@ -70,7 +70,7 @@ http://localhost:8080/csp/user/websocket.html
 
 ipアドレスとポート番号は環境に合わせる
 
-#### Create Socket Buttonを押す(2回)
+#### Create Socketボタンを押す(2回)
 
 WebSocket接続を確立する
 
