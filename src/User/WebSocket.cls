@@ -11,6 +11,8 @@ Method OnPreServer() As %Status
 
 Method Server() As %Status [ ProcedureBlock = 0 ]
 {
+    set status = $$$OK
+
     try {
 	  set cnt=$I(^websocket)
 
@@ -55,11 +57,12 @@ Method Server() As %Status [ ProcedureBlock = 0 ]
 	set status = e.AsStatus()
 	set ^websocket("error",$zh) = $system.Status.GetErrorText(status)
   }
-  quit $$$OK
+  quit status
 }
 
 ClassMethod SendDataAsync() As %Status
 {
+    set status = $$$OK
     try {
 
       set count = $get(^websocket)
@@ -76,7 +79,7 @@ ClassMethod SendDataAsync() As %Status
       set status = e.AsStatus()
       set ^websocket("error",$zh) = $system.Status.GetErrorText(status)
     }
-	quit $$$OK
+	quit status
 }
 
 ClassMethod Init(smode As %Integer = 0) As %Status
