@@ -64,7 +64,7 @@ WebSocket接続を確立する
 
 `>Write ##class(User.WebSocket).Init(1)`
 
-#### ブラウズを２個起動し、websocket.htmlを呼び出す
+#### ブラウザーを２個起動し、websocket.htmlを呼び出す
 
 http://localhost:8080/csp/user/websocket.html
 
