@@ -1,4 +1,4 @@
-# iris WebSocket サンプル
+# IRIS WebSocket サンプル
 
 ## 構成
 
